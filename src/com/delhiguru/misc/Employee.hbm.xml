@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping auto-import="false" package="com.delhiguru.misc">
+   <class name="Employee" table="EMPLOYEE_misc">
+      <meta attribute="class-description">
+         This class contains the employee detail. 
+      </meta>
+      <id name="id" type="int" column="id">
+         <generator class="increment"/>
+      </id>
+      <property name="firstName" column="first_name" type="string"/>
+      <property name="lastName" column="last_name" type="string"/>
+      <property name="salary" column="salary" type="int"/>
+      <property name="dateOfBirth" column="date_of_birth" type="date"/>
+<!--       <property name="basicComponent" type="big_decimal" formula="salary*12/100"></property> -->
+   </class>
+   
+   <!--  <query name="findEmployeeByFirstNameHql">
+       <![CDATA[from Employee e where e.firstName=:firstName]]>
+   </query>  -->
+  
+   <sql-query name="findEmployeeByFirstNameSql">
+       <return alias="employee" class="com.delhiguru.misc.Employee"/>
+       <![CDATA[select *  from employee_misc e where e.first_name=:firstname]]>
+   </sql-query>
+   
+</hibernate-mapping>

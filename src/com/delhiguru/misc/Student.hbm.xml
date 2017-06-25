@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22 May, 2012 3:39:27 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping auto-import="false" package="com.delhiguru.misc">
+    <class name="Student" table="STUDENT_misc">
+        <id name="studentId" type="long">
+            <column name="STUDENT_ID" />
+            <generator class="increment" />
+        </id>
+        <property name="StudentName" type="java.lang.String">
+            <column name="STUDENT_NAME" />
+        </property>
+       
+ 		<many-to-one name="studentAddress" class="Address" column="STUDENT_ADDRESS" cascade="all" not-null="true" />
+
+		<set name="studentPhoneNumbers" table="STUDENT_PHONE_misc" cascade="all">
+			<key column="STUDENT_ID" />
+			<many-to-many column="PHONE_ID" unique="true" class="Phone" />
+		</set>
+		
+		<set name="courses" table="STUDENT_COURSE_misc" cascade="all">
+		    <key column="STUDENT_ID" />
+		    <many-to-many column="COURSE_ID"  class="Course" />
+		</set>
+    </class>
+</hibernate-mapping>

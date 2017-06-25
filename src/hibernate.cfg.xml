@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate_example</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="connection.password">root</property>
+        <property name="connection.pool_size">5</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">create</property>
+       <!--  <mapping resource="com/delhiguru/course/Course.hbm.xml"/>
+        <mapping resource="com/delhiguru/onetomany/Student.hbm.xml"/>
+        <mapping resource="com/delhiguru/onetomany/Address.hbm.xml"/>
+        <mapping resource="com/delhiguru/onetomany/Phone.hbm.xml"/>
+        <mapping resource="com/delhiguru/test/Book.hbm.xml"/> -->
+        
+        <!--  plan module start.... -->
+        <!-- <mapping resource="com/practice/dto/Department.hbm.xml"/>
+        <mapping resource="com/practice/dto/FacultyDto.hbm.xml"/>
+        
+        <mapping resource="com/practice/sample1/Subject.hbm.xml"/>
+        <mapping resource="com/practice/sample1/Standard.hbm.xml"/>
+        <mapping resource="com/practice/sample1/Room.hbm.xml"/> -->
+        
+        <!--  inheritance mapping.. 1  uncomment one inheritance mapping one at a time in order to execute successfully else throws mapping error-->
+        <!-- <mapping resource="com/delhiguru/inh/table_per_class/Payment.hbm.xml"/> -->
+        
+         <!-- table per sub Class for payment example  -->
+        <!--  <mapping resource="com/delhiguru/inh/table_per_sub_class/Payment2.hbm.xml"/> -->
+         
+         <!-- table per Concrete Class for payment example (inheritance mapping) -->
+        <!--  <mapping resource="com/delhiguru/inh/table_per_concrete_class/Payment3.hbm.xml"/> --> 
+        <!--  <mapping resource="com/delhiguru/inh/tpcc/Employee.hbm.xml"/> -->
+        
+        <!-- Hibernate Session Scope interceptor -->
+        <!--  <mapping resource="com/delhiguru/interceptor/Employee.hbm.xml"/>
+         <mapping resource="com/delhiguru/interceptor/AuditLog.hbm.xml"/> -->
+         
+         <!-- One2Many set example and for HQL and SQL and Criteria Query as well -->
+        <!--  <mapping resource="com/delhiguru/relationship/one2many/Employee.hbm.xml"/>
+         <mapping resource="com/delhiguru/relationship/one2many/Department.hbm.xml"/> -->
+         
+         <!-- ManyToOne relationship , and increment Generator class as well -->
+         <!-- <mapping resource="com/delhiguru/relationship/many2one/Student.hbm.xml"/>
+         <mapping resource="com/delhiguru/relationship/many2one/Address.hbm.xml"/> -->
+         
+         <!-- One2One relationship mapping example of stock and stockDetals -->
+        <!--  <mapping resource="com/delhiguru/relationship/one2one/Stock.hbm.xml"/>
+         <mapping resource="com/delhiguru/relationship/one2one/StockDetail.hbm.xml"/> -->
+       
+        <!-- many2many relationship mapping example of User and Role -->
+         <!-- <mapping resource="com/delhiguru/relationship/many2many/User.hbm.xml"/>
+         <mapping resource="com/delhiguru/relationship/many2many/Role.hbm.xml"/> --> 
+          
+         <!--  misc for NativeSQL , HQL, QueryCriteia and much more  -->
+         <!-- <mapping resource="com/delhiguru/misc/Address.hbm.xml"/>
+         <mapping resource="com/delhiguru/misc/Course.hbm.xml"/>
+         <mapping resource="com/delhiguru/misc/Phone.hbm.xml"/>
+         <mapping resource="com/delhiguru/misc/Student.hbm.xml"/>
+         <mapping resource="com/delhiguru/misc/Employee.hbm.xml"/> -->
+         
+         <!-- Composite key example -->
+         <mapping resource="com/delhiguru/compsite/Book.hbm.xml"/>
+         
+         
+    </session-factory>
+</hibernate-configuration>

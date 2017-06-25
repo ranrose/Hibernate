@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="false" package="com.delhiguru.compsite">
+ <class name="Book" table="book_compsite_key">
+     <composite-id>
+         <key-property name="bookId" type="integer">
+             <column name="book_id"></column>
+         </key-property>
+          <key-property name="bookName" >
+              <column name="book_name"></column>
+          </key-property>
+          <key-property name="author">
+              <column name="author"></column>
+          </key-property>
+     </composite-id>
+     
+    <property name="category" column="category" type="string"/>
+    <property name="price" column="price" type="java.lang.Double"/>
+     
+ </class>   
+     
+    
+</hibernate-mapping>

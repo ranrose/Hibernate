@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class name="com.delhiguru.interceptor.AuditLog" table="audit_log">
+      <meta attribute="class-description">
+         This class contains the Audit Log i.e. Audit trial detail. 
+      </meta>
+      <id name="auditLogId" type="long" column="auditLog_id">
+         <generator class="identity"/>
+      </id>
+     	
+      <property name="action" column="action" type="string"/>
+      <property name="detail" column="detail_msg" type="string"/>
+      <property name="createdDate" column="created_at" type="timestamp"/>
+      <property name="entityId" column="entity_id" type="long"/>
+      <property name="entityName" column="entity_name" type="string"/>
+      
+   </class>
+</hibernate-mapping>

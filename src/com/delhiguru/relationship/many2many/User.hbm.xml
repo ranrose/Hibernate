@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- User mapping -->
+<hibernate-mapping auto-import="false" package="com.delhiguru.relationship.many2many">
+	<class name="User" table="users_many2many" lazy="false">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+				
+		<property name="username" column="username" type="string" />
+		<property name="password" column="password" type="string" />
+		
+		<!-- from User -->
+		<array name="rolesArray" table="user_role_many2many_mapping" cascade="none">
+			<key column="user_id" />
+			<index column="idx" />
+			<many-to-many class="Role" column="role_id" lazy="false" />
+		</array>
+		
+		<!-- using list -->
+		<!-- <list name="roles"  table="user_role_many2many_mapping">
+		    <key column="user_id"/>
+		    <list-index column="idx"/>
+	    	<many-to-many class="Role" column="role_id"/>
+		</list> -->
+    </class>
+</hibernate-mapping>
+

@@ -1,0 +1,12 @@
+hibernate.property.formaula.attribute.FormulaClass
+Annotation package - not considered in thsi project as this is pure .hbm.xml based project sample
+lazy package - not got time
+
+please check once hql client
+
+----------- missing things --------------
+- cache
+- few HQL need to check
+- many2many relationship
+- 
+

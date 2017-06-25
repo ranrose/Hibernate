@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22 May, 2012 3:39:27 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping auto-import="false" package="com.delhiguru.misc">
+    <class name="Phone" table="PHONE_misc">
+        <id name="phoneId" type="long">
+            <column name="PHONE_ID" />
+            <generator class="increment" />
+        </id>
+        <property name="phoneType" type="java.lang.String" column="PHONE_TYPE" />
+        <property name="phoneNumber" type="java.lang.String" column="PHONE_NUMBER" />
+    </class>
+</hibernate-mapping>

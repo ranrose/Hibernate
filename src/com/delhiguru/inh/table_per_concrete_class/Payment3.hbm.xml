@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="false" package="com.delhiguru.inh.table_per_concrete_class">
+
+<class name="com.delhiguru.inh.table_per_concrete_class.Payment" abstract="true">
+	<meta attribute="class-description">
+	This class contains the Payment details inheritance mapping .
+	Table per concrete class.
+	</meta>
+	<id name="id" type="long" column="payment_id">
+		<generator class="increment"/> <!-- idendity strategy  not suppported as  -->
+	</id>
+    <property name="amount" column="amount" />
+    
+    <union-subclass name="CreditCardPayment" table="payment_creditcard_3">
+	   <property name="CreditCardType" column="cctype" />
+	</union-subclass>
+   
+    <union-subclass name="ChequePayment" table="payment_cheque_3">
+        <property name="chequeType" column="cheque_type"/>
+    </union-subclass>
+    
+</class>
+
+</hibernate-mapping>

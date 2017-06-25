@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping  auto-import="false" package="com.delhiguru.inh.table_per_class">
+
+<class name="com.delhiguru.inh.table_per_class.Payment" table="payments_1">
+	<meta attribute="class-description">
+	This class contains the Payment details inheritance mapping .
+	</meta>
+	<id name="id" type="long" column="id">
+		<generator class="native"/>
+	</id>
+	
+	<discriminator column="PAYMENT_TYPE" type="string"/>
+    <property name="amount" column="AMOUNT"/>
+    
+    <subclass name="CreditCardPayment" discriminator-value="CREDIT">
+        <property name="creditCardType" column="CCTYPE"/>
+    </subclass>
+    
+    <subclass name="CashPayment" discriminator-value="CASH">
+        <property name="cashDetails" column="cash_details"/>
+    </subclass>
+   
+    <subclass name="ChequePayment" discriminator-value="CHEQUE">
+     <property name="chequeType" column="cheque_type"/>
+    </subclass>
+</class>
+
+</hibernate-mapping>
